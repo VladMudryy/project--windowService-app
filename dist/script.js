@@ -14084,27 +14084,30 @@ function tabs() {
     const trigger = document.querySelectorAll(tabTrigger),
           tab = document.querySelectorAll(tabContent);
 
-    function removeActeiveClass(active) {
+    function hideContent() {
       trigger.forEach(item => {
-        item.classList.remove(active);
+        item.classList.remove(activeClass);
       });
       tab.forEach(item => {
         item.style.display = 'none';
       });
     }
 
+    function showContent() {
+      let i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      trigger[i].classList.add(activeClass);
+      tab[i].style.display = 'block';
+    }
+
+    hideContent();
+    showContent();
     trigger.forEach((item, i) => {
       item.addEventListener('click', event => {
         event.preventDefault();
 
         if (event.target.closest('a') || event.target.closest('img')) {
-          removeActeiveClass(activeClass);
-          item.classList.add(activeClass);
-          tab.forEach((item, j) => {
-            if (j === i) {
-              item.style.display = 'block';
-            }
-          });
+          hideContent();
+          showContent(i);
         }
       });
     });
