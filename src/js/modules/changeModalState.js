@@ -20,7 +20,11 @@ function changeModalState(state) {
                         break;
                     case 'INPUT': 
                         if (item.getAttribute('type') === 'checkbox') {
-                            i === 0 ? state[itemName] = 'Cold' : state[itemName] = 'Warm';
+                            if (i === 0) {
+                                state[itemName] = 'Cold';
+                            } else {
+                                state[itemName] = 'Warm';
+                            }
                             elem.forEach((box, j) => {
                                 box.checked = false;
                                 if (i === j) {
