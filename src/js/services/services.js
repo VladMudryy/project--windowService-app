@@ -8,4 +8,13 @@ function closeModal(modalClass, activeClass) {
     document.querySelector('body').classList.remove(activeClass);
 }
 
-export {openModal, closeModal};
+function checkDigits(selector) {
+    const numInputs = document.querySelectorAll(selector);
+    numInputs.forEach(item => {
+        item.addEventListener('input', event => {
+            item.value = item.value.replace(/\D/, '');
+        });
+    });
+}
+
+export {openModal, closeModal, checkDigits};

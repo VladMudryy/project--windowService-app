@@ -1,6 +1,7 @@
-function forms() {
-    const form = document.querySelectorAll('form'),
-          telInput = document.querySelectorAll('.form-phone');
+import {checkDigits} from '../services/services';
+
+function forms(state) {
+    const form = document.querySelectorAll('form');
 
     const answers = {
         loading: 'Please wait...',
@@ -19,11 +20,7 @@ function forms() {
     };
     
     // Only digits in tel input
-    telInput.forEach(item => {
-        item.addEventListener('input', event => {
-            item.value = item.value.replace(/\D/, '');
-        });
-    });
+    checkDigits('input[name="user-phone"]');
 
     // Form submit
     form.forEach(item => {
@@ -35,6 +32,11 @@ function forms() {
             item.appendChild(statusAsnswer);
 
             let formData = new FormData(item);
+            if (item.getAttribute('data-calc') === "end") {
+                for (let key in state) {
+                    formData.append(key, state[key]);
+                }
+            }
 
             postData('assets/server.php', formData)
                 .then(res => {
