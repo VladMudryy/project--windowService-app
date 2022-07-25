@@ -1,11 +1,11 @@
-function openModal(modalClass) {
+function openModal(modalClass, activeClass) {
     modalClass.style.display = 'block';
-    document.querySelector('body').classList.add('modal-open');
+    document.querySelector('body').classList.add(activeClass);
 }
 
-function closeModal(modalClass) {
+function closeModal(modalClass, activeClass) {
     modalClass.style.display = 'none';
-    document.querySelector('body').classList.remove('modal-open');
+    document.querySelector('body').classList.remove(activeClass);
 }
 
 export {openModal, closeModal};

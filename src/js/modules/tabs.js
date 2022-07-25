@@ -1,6 +1,6 @@
-function tabs(tabTrigger, tabContent, activeClass) {
+function tabs(tabTrigger, tabContent, activeClass, display = 'block') {
     const trigger = document.querySelectorAll(tabTrigger),
-            tab = document.querySelectorAll(tabContent);
+          tab = document.querySelectorAll(tabContent);
 
     function hideContent() {
         trigger.forEach(item => {
@@ -13,7 +13,7 @@ function tabs(tabTrigger, tabContent, activeClass) {
 
     function showContent(i = 0) {
         trigger[i].classList.add(activeClass);
-        tab[i].style.display = 'block';
+        tab[i].style.display = display;
     } 
     
     hideContent();
