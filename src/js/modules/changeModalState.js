@@ -9,6 +9,7 @@ function changeModalState(state) {
 
     checkDigits('#width');
     checkDigits('#height');
+    console.log(state);
     
     function bindActionToElem(event, elem, itemName) {
         elem.forEach((item, i) => {
@@ -37,12 +38,13 @@ function changeModalState(state) {
             });
         });
     }
-
+    
     bindActionToElem('click', balconForm, 'form');
     bindActionToElem('input', balconWidth, 'width');
     bindActionToElem('input', balconHeight, 'height');
     bindActionToElem('change', balconProfile, 'profile');
     bindActionToElem('change', balconType, 'type');
+    console.log(state);
 }
 
 export default changeModalState;
