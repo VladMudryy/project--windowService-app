@@ -1,7 +1,9 @@
 import {checkDigits} from '../services/services';
+import {closeModal} from '../services/services';
 
 function forms(state) {
-    const form = document.querySelectorAll('form');
+    const form = document.querySelectorAll('form'),
+          closeCalcForm = document.querySelector('.popup_calc_end');
 
     const answers = {
         loading: 'Please wait...',
@@ -51,6 +53,11 @@ function forms(state) {
                     setTimeout(() => {
                         statusAsnswer.remove();
                     }, 5000);
+                    if (item.getAttribute('data-calc') === "end") {
+                        state = {};
+                        closeModal(closeCalcForm);
+                    }
+                    console.log(state);
                 });
         });
     });

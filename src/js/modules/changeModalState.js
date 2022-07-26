@@ -9,8 +9,7 @@ function changeModalState(state) {
 
     checkDigits('#width');
     checkDigits('#height');
-    console.log(state);
-    
+
     function bindActionToElem(event, elem, itemName) {
         elem.forEach((item, i) => {
             item.addEventListener(event, () => {

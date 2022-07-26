@@ -1,9 +1,9 @@
-function openModal(modalClass, activeClass) {
+function openModal(modalClass, activeClass = 'modal-open') {
     modalClass.style.display = 'block';
     document.querySelector('body').classList.add(activeClass);
 }
 
-function closeModal(modalClass, activeClass) {
+function closeModal(modalClass, activeClass = 'modal-open') {
     modalClass.style.display = 'none';
     document.querySelector('body').classList.remove(activeClass);
 }
