@@ -330,6 +330,8 @@ textarea:focus {
 .main {
   padding: 10rem 0;
   background: #ffffff url(../img/main/bg.png) 0 0 no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .main h1 {
