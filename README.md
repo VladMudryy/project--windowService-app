@@ -10,8 +10,6 @@
 
 
 ## Technologies Used
-- Html
-- Css
 - JavaScript
 - npm: babel, webpack, gulp
 
